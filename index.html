@@ -4,6 +4,7 @@
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script src="main.js"></script>
@@ -14,10 +15,13 @@
     <div class="container">
 
         <div class="jumbotron">
-            <h1 class="movie_title">Movie Title</h1>
-            <p class="movie_description"></p>
-            <div class="spin btn">New Title</div>
-            <div class="movie_poster">
+            <h1 class="movie_title">Loading Netflix Title...</h1>
+            <p class="movie_description">Loading Title Description</p>
+            <!-- <h3>Click on the image to redirect to netflix or click "New Title"</h3> -->
+            <h3>Don't like the title? Simply click on "New Title" to reroll.</h3>
+            <button class="spin btn-danger btn-lg hero">New Title</button>
+            <h3>Or click on the image to redirect to Netflix.</h3>
+            <div class="movie_poster hero">
                 <a class="play" target="_blank">
                     <img class="movie_poster" src="" alt="">
                 </a>
@@ -25,7 +29,9 @@
 
 
         </div>
-
+        <a href="https://github.com/Umpoy/memory_match_oop" target="_blank">
+            <i class="fa fa-github-square" aria-hidden="true"></i>
+        </a>
     </div>
 </body>
 
