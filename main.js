@@ -34,9 +34,6 @@ function grabMoviesFromDataBase() {
                 movie.rating = $(this).find('.average_rating').text();
                 var holdMovieSynopsis = $(this).find('.synopsis')[0];
                 movie.synopsis = $(holdMovieSynopsis).text();
-                //here take out the edit made to button spin
-                $('.spin').removeClass('spinOnLoad');
-                $('.spin').prop('disabled', false);
             });
             renderMovieInfoToDom(movie);
         },
@@ -47,33 +44,13 @@ function grabMoviesFromDataBase() {
     return promise;
 }
 
-
-/***************************************************************************************************
-* function name: netflixRouletteButton
-* @params {undefined}: none
-* @returns: {undefined}: none
-* function description: Waits for AJAX by using a spinner
-*/
 function netflixRouletteButton() {
     grabMoviesFromDataBase();
-    //add lines here for making button spin
-    $('.spin').addClass('spinOnLoad');
-    $('.spin').prop('disabled', true);
-
 }
 
-
-/***************************************************************************************************
-* function name: renderMovieInfoToDom
-* @params {undefined} none
-* @returns: {undefined} none
-* function description: Takes then movie object's values and renders them to the screen
-*/
 function renderMovieInfoToDom(movie) { // Gets movie info and places them into DOM elements 
-    var setDecimalForMovieRating = parseFloat(movie.rating);
     $('.movie_title').text(movie.title);
     $('.movie_poster').attr('src', movie.image);
     $('.play').attr('href', movie.link); // Gives netflix url to button
     $('.movie_description').text(movie.synopsis);
-    $('.netflix_rating').text(setDecimalForMovieRating.toFixed(1));
 }
