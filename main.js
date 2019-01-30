@@ -25,16 +25,16 @@ function grabMoviesFromDataBase() {
             var movie = {};
             var shadowDom = new DOMParser().parseFromString(serverData, "text/html");
             var movieElements = $(shadowDom).find('.iw-container');
-            movieElements.each(function () {
-                var holdMovieTitle = $(this).find('.title')[0];
-                movie.title = $(holdMovieTitle).text();
-                movie.image = $(this).find('.iw-boxart').attr('src');
-                var holdLink = $(this).find('.action-play')[0];
-                movie.link = $(holdLink).attr('href');
-                movie.rating = $(this).find('.average_rating').text();
-                var holdMovieSynopsis = $(this).find('.synopsis')[0];
-                movie.synopsis = $(holdMovieSynopsis).text();
-            });
+            console.log("shadowDom: ", shadowDom);
+            console.log("movieElements: ", movieElements);
+            var holdMovieTitle = $(this).find('.title')[0];
+            movie.title = $(holdMovieTitle).text();
+            movie.image = $(this).find('.iw-boxart').attr('src');
+            var holdLink = $(this).find('.action-play')[0];
+            movie.link = $(holdLink).attr('href');
+            movie.rating = $(this).find('.average_rating').text();
+            var holdMovieSynopsis = $(this).find('.synopsis')[0];
+            movie.synopsis = $(holdMovieSynopsis).text();
             renderMovieInfoToDom(movie);
         },
         error: function (err) {
