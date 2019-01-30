@@ -27,14 +27,16 @@ function grabMoviesFromDataBase() {
             var movieElements = $(shadowDom).find('.iw-container');
             console.log("shadowDom: ", shadowDom);
             console.log("movieElements: ", movieElements);
-            var holdMovieTitle = $(this).find('.title')[0];
-            movie.title = $(holdMovieTitle).text();
-            movie.image = $(this).find('.iw-boxart').attr('src');
-            var holdLink = $(this).find('.action-play')[0];
-            movie.link = $(holdLink).attr('href');
-            movie.rating = $(this).find('.average_rating').text();
-            var holdMovieSynopsis = $(this).find('.synopsis')[0];
-            movie.synopsis = $(holdMovieSynopsis).text();
+            movieElements.each(function () {
+                var holdMovieTitle = $(this).find('.title')[0];
+                movie.title = $(holdMovieTitle).text();
+                movie.image = $(this).find('.iw-boxart').attr('src');
+                var holdLink = $(this).find('.action-play')[0];
+                movie.link = $(holdLink).attr('href');
+                movie.rating = $(this).find('.average_rating').text();
+                var holdMovieSynopsis = $(this).find('.synopsis')[0];
+                movie.synopsis = $(holdMovieSynopsis).text();
+            });
             renderMovieInfoToDom(movie);
         },
         error: function (err) {
@@ -50,7 +52,7 @@ function netflixRouletteButton() {
 
 function renderMovieInfoToDom(movie) { // Gets movie info and places them into DOM elements 
     $('.movie_title').text(movie.title);
-    $('.movie_poster').attr('src', movie.image);
+    $('.movie_poster').attr('src', 'https://instantwatcher.com' + movie.image);
     $('.play').attr('href', movie.link); // Gives netflix url to button
     $('.movie_description').text(movie.synopsis);
 }
