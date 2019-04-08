@@ -52,7 +52,7 @@ function netflixRouletteButton() {
 
 function renderMovieInfoToDom(movie) { // Gets movie info and places them into DOM elements 
     $('.movie_title').text(movie.title);
-    $('.movie_poster').attr('src', 'https://instantwatcher.com' + movie.image);
+    $('.movie_poster').attr('src', movie.image);
     $('.play').attr('href', movie.link); // Gives netflix url to button
     $('.movie_description').text(movie.synopsis);
 }
